@@ -1,5 +1,6 @@
 javascript: var sfData = {};
 sfData["division"]=document.getElementById('00N800000033J4U_ileinner').innerHTML;
+sfData["divCity"]=document.getElementById('00N800000033J4U_ileinner').innerHTML;
 sfData["subdivision"]=document.getElementById('00N80000003mJg1_ileinner').innerHTML;
 sfData["sfOpportunityId"]=document.getElementById('00N80000004KNJg_ileinner').innerHTML;
 sfData["feature"]=document.getElementById('opp5_ileinner').innerHTML;
@@ -36,7 +37,9 @@ sfData['unitValue']=Math.round(sfData['unitValue'].slice(sfData.unitValue.indexO
 sfData['unitSellPrice']=Math.round(sfData['unitSellPrice'].slice(sfData.unitSellPrice.indexOf('$')+1));
 sfData['unitBuyPrice']=sfData['unitBuyPrice'].slice(sfData.unitBuyPrice.indexOf('$')+1);
 
-/* Multi-Line field parsing */
+/* Field Escaping, nl2br, etc */
+sfData['dealTitle']=sfData['dealTitle'].replace(/\"/g, "");
+sfData['dealTitle']=sfData['dealTitle'].replace(/\'/g, "");
 sfData['redemptionAddress']=sfData['redemptionAddress'].replace(/<br>/g, "\\n");
 sfData['redemptionAddress']=sfData['redemptionAddress'].replace(/\"/g, "\\\"");
 sfData['billingAddress']=sfData['billingAddress'].replace(/<br>/g, "\\n");
