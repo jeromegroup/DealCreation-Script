@@ -1,6 +1,7 @@
-1) Create bookmarklet with contents of /resources/code for individual pages/salesforce
+1) Create a bookmarklet with contents of /resources/codeForIndividualPages/salesforce
+	(Make a bookmark in your browser, edit the link, and paste the contents of the above file)
 
-2) Click that bookmarklet when you're in a salesforce deal you wish to create.
+2) Click that bookmarklet while viewing a salesforce deal you wish to create.
 
 3) Copy the output, and paste it over the line /* Insert ATTRIBUTESFORINSERTION here */ in the DealCreationHelper
 
