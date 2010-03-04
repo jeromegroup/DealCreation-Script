@@ -8,49 +8,31 @@ try{
 		$('vendor_name').value=attributesForInsertion["vendorName"];
 		$('vendor_address').value=attributesForInsertion["redemptionAddress"];  }
 	else {
-		$('contact_full_name').value=attributesForInsertion["firstName"]+" "+attributesForInsertion["vendorName"];
+		if (attributesForInsertion["firstName"]) {
+			$('contact_full_name').value=attributesForInsertion["firstName"]+" "+attributesForInsertion["vendorName"];
+		} else {$('contact_full_name').value=attributesForInsertion["vendorName"];}
 		$('contact_full_name').style.backgroundColor="pink";
 		$('contact_full_name').setAttribute('onclick', 'this.style.backgroundColor="white"');
 		$('contact_email_address').value=attributesForInsertion["emailListTo"];
 		var adjective = Math.round(Math.random()*10);
 		if (adjective >= 5) {adjective = "rocks";} else if (adjective < 5) {adjective = "rules";}
-		var pass1 = attributesForInsertion["vendorName"].replace(/\s*/g,'') + "rocks" + Math.round(Math.random()*10);
+		var pass1 = attributesForInsertion["vendorName"].split(" ").slice(0,4).join("")+ adjective + Math.round(Math.random()*10);
 		var pass2 = pass1.toLowerCase();
 		$('contact_password').value=pass2;
 		$('contact_password_confirmation').value=pass2;
 		$('contact_full_name').focus();
-	};
+		}; 
+	void 0;
 	/* End Vendor Creation Page */
 } catch(Error){}
 
 try{
-	/*Start Coupon page */
-	$('coupon_pledge_title').value=attributesForInsertion['dealTitle'];
-	$('coupon_condition_data').value=attributesForInsertion['conditions'].split("\n\n")[0];
+	/* Start Coupon page */
+	$('coupon_condition_data').value=attributesForInsertion['conditions'];
 	var tippingLanguage = "\n\n*Remember: Groupon customers tip on the full amount of the pre-discounted bill (and tip generously). That's why we are the coolest customers out there.\n\n*Remember: Groupon customers tip on the full amount of the pre-discounted service (and tip generously). That's why we are the coolest customers out there.";
 	$('coupon_instructions').value=attributesForInsertion['instructions'] + tippingLanguage;
-	var endDay= new Date(attributesForInsertion["featureEndDate"]).getDay();
-	var day = "";
-	if (endDay==5) day="Friday ";
-	if (endDay==6) day="Saturday ";
-	$$('div.field.coupon_expires')[0].childNodes[0].innerHTML+=" " + attributesForInsertion['rawExpirationDate'] +"; Ends on " + "<span id='colorEndDay'>"+ day + "</span>" + attributesForInsertion['featureEndDate'];
-	var expDate = new Date(attributesForInsertion["expirationDate"]);
-	$('coupon_expires_date_1i').value=expDate.getFullYear();
-	$('coupon_expires_date_2i').value=expDate.getMonth()+1;
-	$('coupon_expires_date_3i').value=expDate.getDate();
 
 	/* color fields which need attention */
-	$('colorEndDay').style.color="red";
-	$('coupon_pledge_title').style.backgroundColor='pink';
-	$('coupon_pledge_title').setAttribute('onclick', 'this.style.backgroundColor="white"');
-	$('coupon_pledge_subtitle').style.backgroundColor='pink';
-	$('coupon_pledge_subtitle').onmouseover = function() { this.style.backgroundColor ="white";};
-	$('coupon_expires_date_1i').style.backgroundColor='pink';
-	$('coupon_expires_date_1i').onmouseover = function() { this.style.backgroundColor ="white";};
-	$('coupon_expires_date_2i').style.backgroundColor='pink';
-	$('coupon_expires_date_2i').onmouseover = function() { this.style.backgroundColor ="white";};
-	$('coupon_expires_date_3i').style.backgroundColor='pink';
-	$('coupon_expires_date_3i').onmouseover = function() { this.style.backgroundColor ="white";};
 	$$('div.field.coupon_map')[0].style.backgroundColor='pink';
 	$$('div.field.coupon_map')[0].onmouseover = function() { this.style.backgroundColor ="white";};
 	$('coupon_condition_data').style.backgroundColor='pink';
@@ -58,11 +40,12 @@ try{
 	$('coupon_instructions').style.backgroundColor='pink'; 
 	$('coupon_instructions').setAttribute('onclick', 'this.style.backgroundColor="white"'); 
 	/* end coupon page coloring */
-	/* end coupon page */
+	void 0;
+	/* End Coupon page */
 } catch(error){}
 
 try{
-	/* Terms/Edit Page */
+	/* Start Terms Page */
 	$('campaign_division_id').value=attributesForInsertion['division'];
 	$$('div.field.campaign_division_id')[0].childNodes[0].innerHTML="Subdivision: " + attributesForInsertion["subdivision"];
 	$('campaign_opportunity_id').value=attributesForInsertion['sfOpportunityId'];
@@ -77,29 +60,53 @@ try{
 	$('campaign_deadline_date_3i').value=endDate.getDate();
 	$('campaign_title').value=attributesForInsertion['vendorName'];
 	$('campaign_remit_to').value=attributesForInsertion['billingAddress'];
-	$('campaign_campaign_money_pledge_campaign_constraints_unit_price').value=attributesForInsertion['unitSellPrice'];
-	$('campaign_campaign_money_pledge_campaign_constraints_unit_value').value=attributesForInsertion['unitValue'];
-	$('campaign_campaign_money_pledge_campaign_constraints_unit_buy_price').value=attributesForInsertion['unitBuyPrice'];
+	$('campaign_pledges_attributes_0_coupon_title').value=attributesForInsertion['dealTitle'];
+	$('campaign_pledges_attributes_0_unit_price').value=attributesForInsertion['unitSellPrice'];
+	$('campaign_pledges_attributes_0_unit_value').value=attributesForInsertion['unitValue'];
+	$('campaign_pledges_attributes_0_unit_buy_price').value=attributesForInsertion['unitBuyPrice'];
 	$('campaign_tipping_point').value=attributesForInsertion['dealMin'];
 	if (isNaN(attributesForInsertion['dealMax']) != true) {
-		$('campaign_campaign_money_pledge_campaign_constraints_max_pledges').value=attributesForInsertion['dealMax']; };
-	$('campaign_campaign_money_pledge_member_constraints_minimum').value=1;
-	$('campaign_campaign_money_pledge_member_constraints_maximum').value=attributesForInsertion['buyerMax'];
-	$$('div.field.campaign_campaign_money_pledge__member_constraints_maximum.text')[0].childNodes[0].innerHTML+="<br /><span style='color:gray''>" +attributesForInsertion['conditions'].split("\n\n")[0] + "</span>";
-	$('campaign_campaign_money_pledge_member_constraints_suggested').value=1;
+		$('campaign_pledges_attributes_0_max_pledges').value=attributesForInsertion['dealMax']; };
+	$('campaign_pledges_attributes_0_max_per_pledge').value=attributesForInsertion['buyerMax'];
+	$('campaign_pledges_attributes_0_max_per_pledge').parentNode.childNodes[0].innerHTML
+		+="<br /><span style='color:gray''>" +attributesForInsertion['conditions'].split("\n\n")[0] 
+		+ "</span>";
+	/* start Expiration date code */
+	var endDay= new Date(attributesForInsertion["featureEndDate"]).getDay();
+	var day = "";
+	if (endDay==5) day="Friday ";
+	if (endDay==6) day="Saturday ";
+	$('campaign_pledges_attributes_0_expires_date_1i').parentNode.childNodes[0].innerHTML+=" " 
+		+ attributesForInsertion['rawExpirationDate'] +"; Ends on " 
+		+ "<span id='colorEndDay'>"+ day + "</span>" + attributesForInsertion['featureEndDate'];
+	var expDate = new Date(attributesForInsertion["expirationDate"]);
+	$('campaign_pledges_attributes_0_expires_date_1i').value=expDate.getFullYear();
+	$('campaign_pledges_attributes_0_expires_date_2i').value=expDate.getMonth()+1;
+	$('campaign_pledges_attributes_0_expires_date_3i').value=expDate.getDate();
+	/* end Exipration date code */
 	$('campaign_deal_vendor_name').value=attributesForInsertion['vendorName'];
 	var anchorText = attributesForInsertion['vendorURL'];
 	if (anchorText.indexOf('http://') != -1) anchorText=anchorText.slice(7);
 	if (anchorText.charAt(anchorText.length - 1)=="/") anchorText=anchorText.slice(0,anchorText.length-1);
 	$('campaign_deal_vendor_website_label').value=anchorText;
 	$('campaign_deal_vendor_website_url').value=attributesForInsertion['vendorURL'];
-	$$("div.field.campaign_location_note label")[0].innerHTML+= "<br /><br />" + 
-		attributesForInsertion['redemptionAddress'].replace(/\n/g, "<br \/>");;
-	if (attributesForInsertion["addressOne"]) {$('campaign_locations_attributes_0_address1').value=attributesForInsertion["addressOne"];}
-	if (attributesForInsertion["city"]) {$('campaign_locations_attributes_0_city').value=attributesForInsertion["city"];}
-	if (attributesForInsertion["state"]) {$('campaign_locations_attributes_0_state').value=attributesForInsertion["state"];}
-	if (attributesForInsertion["zip"]) {$('campaign_locations_attributes_0_zip').value=attributesForInsertion["zip"];}
-	$('campaign_locations_attributes_0_map_url').value='http://maps.google.com/maps?q='+encodeURI($('campaign_locations_attributes_0_address1').value + " " + $('campaign_locations_attributes_0_city').value + " " + $('campaign_locations_attributes_0_state').value + " " + $('campaign_locations_attributes_0_zip').value);
+	locationHint = document.createElement('p');
+	locationHint.innerHTML=attributesForInsertion['redemptionAddress'].replace(/\n/g, "<br \/>");
+	$('location_fields').insertBefore(locationHint, $('location_0'));
+
+	if (attributesForInsertion["addressOne"]) 
+		{$('campaign_locations_attributes_1_address1').value=attributesForInsertion["addressOne"];}
+	if (attributesForInsertion["city"]) 
+		{$('campaign_locations_attributes_1_city').value=attributesForInsertion["city"];}
+	if (attributesForInsertion["state"]) 
+		{$('campaign_locations_attributes_1_state').value=attributesForInsertion["state"];}
+	if (attributesForInsertion["zip"]) 
+		{$('campaign_locations_attributes_1_zip').value=attributesForInsertion["zip"];}
+	$('campaign_locations_attributes_1_map_url').value='http://maps.google.com/maps?q='
+		+encodeURI($('campaign_locations_attributes_1_address1').value + " " 
+		+ $('campaign_locations_attributes_1_city').value + " " 
+		+ $('campaign_locations_attributes_1_state').value + " " 
+		+ $('campaign_locations_attributes_1_zip').value);
 
 
 	/* color fields which need attention */
@@ -107,7 +114,19 @@ try{
 	$$('div.field.campaign_local.check')[0].style.backgroundColor='#ffc0ff';
 	$$('div.field.campaign_local.check')[0].onmouseover = function() { this.style.backgroundColor ="white";};
 	$('campaign_remit_to').style.color="black";
-	$('campaign_campaign_money_pledge_campaign_constraints_unit_buy_price').style.color="black";
+	$('campaign_pledges_attributes_0_coupon_title').style.backgroundColor='#ffc0ff';
+	$('campaign_pledges_attributes_0_coupon_title').setAttribute('onclick', 'this.style.backgroundColor="white"');
+	$('campaign_pledges_attributes_0_coupon_subtitle').style.backgroundColor='#ffc0ff';
+	$('campaign_pledges_attributes_0_coupon_subtitle').onmouseover = function() { this.style.backgroundColor ="white";};
+	$('campaign_pledges_attributes_0_unit_buy_price').style.color="black";
+	$('campaign_pledges_attributes_0_max_per_pledge').style.backgroundColor='#ffc0ff';
+	$('campaign_pledges_attributes_0_max_per_pledge').setAttribute('onclick', 'this.style.backgroundColor="white"');
+	$('campaign_pledges_attributes_0_expires_date_1i').style.backgroundColor='#ffc0ff';
+	$('campaign_pledges_attributes_0_expires_date_1i').onmouseover = function() { this.style.backgroundColor ="white";};
+	$('campaign_pledges_attributes_0_expires_date_2i').style.backgroundColor='#ffc0ff';
+	$('campaign_pledges_attributes_0_expires_date_2i').onmouseover = function() { this.style.backgroundColor ="white";};
+	$('campaign_pledges_attributes_0_expires_date_3i').style.backgroundColor='#ffc0ff';
+	$('campaign_pledges_attributes_0_expires_date_3i').onmouseover = function() { this.style.backgroundColor ="white";};
 	if (launchDate.getDay()==5) {
 		$('campaign_deadline_date_3i').style.backgroundColor='#ffc0ff'; 
 		$$('div.launch_date')[0].childNodes[1].innerHTML+=' <span style="color:red">Friday Deal!</span>'; };
@@ -122,8 +141,6 @@ try{
 	$('campaign_release_date_3i').style.backgroundColor='#ffeeff';
 	$('date_hour').style.backgroundColor='#ffeeff';
 	$('campaign_vendor_id').style.backgroundColor='#ffc0ff';
-	$('campaign_campaign_money_pledge_member_constraints_maximum').style.backgroundColor='#ffc0ff';
-	$('campaign_campaign_money_pledge_member_constraints_maximum').setAttribute('onclick', 'this.style.backgroundColor="white"');
 	$('campaign_deal_vendor_website_url').style.backgroundColor='#ffc0ff';
 	$('campaign_deal_vendor_website_url').setAttribute('onclick', 'this.style.backgroundColor="white"');
 	$('campaign_deal_vendor_website_label').style.backgroundColor='#ffeeff';
@@ -133,7 +150,7 @@ try{
 	$('campaign_vendor_id').focus();
 
 	void 0;
-	
+	/* End Terms Page */
 	} catch(Error){}
 
 void 0;

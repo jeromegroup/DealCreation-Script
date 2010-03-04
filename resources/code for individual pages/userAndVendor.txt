@@ -6,13 +6,15 @@ if ($('vendor_contact_params_new_permalink').value != "") {
 	$('vendor_name').value=attributesForInsertion["vendorName"];
 	$('vendor_address').value=attributesForInsertion["redemptionAddress"];  }
 else {
-	$('contact_full_name').value=attributesForInsertion["firstName"]+" "+attributesForInsertion["vendorName"];
+	if (attributesForInsertion["firstName"]) {
+		$('contact_full_name').value=attributesForInsertion["firstName"]+" "+attributesForInsertion["vendorName"];
+	} else {$('contact_full_name').value=attributesForInsertion["vendorName"];}
 	$('contact_full_name').style.backgroundColor="pink";
 	$('contact_full_name').setAttribute('onclick', 'this.style.backgroundColor="white"');
 	$('contact_email_address').value=attributesForInsertion["emailListTo"];
 	var adjective = Math.round(Math.random()*10);
 	if (adjective >= 5) {adjective = "rocks";} else if (adjective < 5) {adjective = "rules";}
-	var pass1 = attributesForInsertion["vendorName"].replace(/\s*/g,'') + "rocks" + Math.round(Math.random()*10);
+	var pass1 = attributesForInsertion["vendorName"].split(" ").slice(0,4).join("")+ adjective + Math.round(Math.random()*10);
 	var pass2 = pass1.toLowerCase();
 	$('contact_password').value=pass2;
 	$('contact_password_confirmation').value=pass2;
