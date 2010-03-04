@@ -1,34 +1,5 @@
 javascript:
-var attributesForInsertion = {};
-attributesForInsertion['division'] = "30";
-attributesForInsertion['divCity'] = "Columbus";
-attributesForInsertion['subdivision'] = " ";
-attributesForInsertion['sfOpportunityId'] = "0068000000Ts09Q";
-attributesForInsertion['feature'] = "Feature";
-attributesForInsertion['featureDate'] = "3/10/2010";
-attributesForInsertion['featureEndDate'] = "3/10/2010";
-attributesForInsertion['vendorName'] = "The Rite Bite";
-attributesForInsertion['redemptionAddress'] = "The Rite Bite \n171 Green Meadows Drive South \nLewis Center, OH 43035";
-attributesForInsertion['billingAddress'] = "The Rite Bite \n171 Green Meadows Drive South \nLewis Center, OH 43035";
-attributesForInsertion['unitSellPrice'] = "25";
-attributesForInsertion['unitValue'] = "180";
-attributesForInsertion['unitBuyPrice'] = "12.50";
-attributesForInsertion['dealMin'] = "20";
-attributesForInsertion['dealMax'] = " ";
-attributesForInsertion['buyerMax'] = "1";
-attributesForInsertion['vendorURL'] = "www.theritebite.com/";
-attributesForInsertion['emailListTo'] = "mary@theritebite.com";
-attributesForInsertion['dealTitle'] = "The Rite Bite-$25 for 3 one hour training sessions and all gym privelages";
-attributesForInsertion['conditions'] = "-Groupon valid for 7 days from the 1st session, including all three sessions. Limit 1 per customer.";
-attributesForInsertion['instructions'] = "1) Print Groupon \n2) Call 1-866-668-RITE (7483) to schedule appointment \n3) Work out!";
-attributesForInsertion['rawExpirationDate'] = "6 months from feature date";
-attributesForInsertion['expirationDate'] = "3/11/2010";
-attributesForInsertion['firstName'] = "Mary";
-attributesForInsertion['addressOne'] = "171 Green Meadows Drive South ";
-attributesForInsertion['addressTwo'] = "Lewis Center, OH 43035";
-attributesForInsertion['city'] = "Lewis Center";
-attributesForInsertion['state'] = "Ohio";
-attributesForInsertion['zip'] = "43035";
+
 /* Insert AttributesForInsertion Here */
 
 $('campaign_division_id').value=attributesForInsertion['division'];
@@ -117,10 +88,10 @@ $('campaign_pledges_attributes_0_expires_date_3i').style.backgroundColor='#ffc0f
 $('campaign_pledges_attributes_0_expires_date_3i').onmouseover = function() { this.style.backgroundColor ="white";};
 if (launchDate.getDay()==5) {
 	$('campaign_deadline_date_3i').style.backgroundColor='#ffc0ff'; 
-	$$('div.launch_date')[0].childNodes[1].innerHTML+=' <span style="color:red">Friday Deal!</span>'; };
-if (launchDate.getDay()==6) {
+	document.getElementById('campaign_schedule_date_1i').parentNode.childNodes[0].innerHTML+=' <span style="color:red">Friday Deal!</span>'; };
+if (launchDate.getDay()==6) { 
 	$('campaign_deadline_date_3i').style.backgroundColor='#ffc0ff'; 
-	$$('div.launch_date')[0].childNodes[1].innerHTML+=' <span style="color:red">Saturday Deal!</span>'; };
+	document.getElementById('campaign_schedule_date_1i').parentNode.childNodes[0].innerHTML+=' <span style="color:red">Saturday Deal!</span>'; };
 if (attributesForInsertion['division']==4 || attributesForInsertion['division']==6 ) {
 	$('campaign_division_id').style.backgroundColor='#ffc0ff';};
 $('campaign_deadline_date_3i').onchange = function() { this.style.backgroundColor ="white";};

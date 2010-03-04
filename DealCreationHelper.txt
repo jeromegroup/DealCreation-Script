@@ -90,7 +90,7 @@ try{
 	if (anchorText.indexOf('http://') != -1) anchorText=anchorText.slice(7);
 	if (anchorText.slice(0,3) != "www") anchorText= "www." + anchorText; 
 	var slash = anchorText.indexOf("/");
-	if (slash != -1) anchorText = anchorText.slice(0,slash);
+	anchorText = anchorText.slice(0,slash);
 	$('campaign_deal_vendor_website_label').value=anchorText;
 	$('campaign_deal_vendor_website_url').value=attributesForInsertion['vendorURL'];
 	locationHint = document.createElement('p');
@@ -132,10 +132,10 @@ try{
 	$('campaign_pledges_attributes_0_expires_date_3i').onmouseover = function() { this.style.backgroundColor ="white";};
 	if (launchDate.getDay()==5) {
 		$('campaign_deadline_date_3i').style.backgroundColor='#ffc0ff'; 
-		$$('div.launch_date')[0].childNodes[1].innerHTML+=' <span style="color:red">Friday Deal!</span>'; };
-	if (launchDate.getDay()==6) {
+		document.getElementById('campaign_schedule_date_1i').parentNode.childNodes[0].innerHTML+=' <span style="color:red">Friday Deal!</span>'; };
+	if (launchDate.getDay()==6) { 
 		$('campaign_deadline_date_3i').style.backgroundColor='#ffc0ff'; 
-		$$('div.launch_date')[0].childNodes[1].innerHTML+=' <span style="color:red">Saturday Deal!</span>'; };
+		document.getElementById('campaign_schedule_date_1i').parentNode.childNodes[0].innerHTML+=' <span style="color:red">Saturday Deal!</span>'; };
 	if (attributesForInsertion['division']==4 || attributesForInsertion['division']==6 ) {
 		$('campaign_division_id').style.backgroundColor='#ffc0ff';};
 	$('campaign_deadline_date_3i').onchange = function() { this.style.backgroundColor ="white";};
@@ -153,7 +153,8 @@ try{
 	$('campaign_vendor_id').focus();
 
 	void 0;
-	/* End Terms Page */
+	
+/* End Terms Page */
 	} catch(Error){}
 
 void 0;
