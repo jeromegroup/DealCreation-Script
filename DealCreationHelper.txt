@@ -90,12 +90,12 @@ try{
 	if (anchorText.indexOf('http://') != -1) anchorText=anchorText.slice(7);
 	if (anchorText.slice(0,3) != "www") anchorText= "www." + anchorText; 
 	var slash = anchorText.indexOf("/");
-	anchorText = anchorText.slice(0,slash);
+	if (slash != -1) anchorText = anchorText.slice(0,slash);
 	$('campaign_deal_vendor_website_label').value=anchorText;
 	$('campaign_deal_vendor_website_url').value=attributesForInsertion['vendorURL'];
 	locationHint = document.createElement('p');
 	locationHint.innerHTML=attributesForInsertion['redemptionAddress'].replace(/\n/g, "<br \/>");
-	$('location_fields').insertBefore(locationHint, $('location_0'));
+	$('location_fields').insertBefore(locationHint, $('location_1'));
 
 	if (attributesForInsertion["addressOne"]) 
 		{$('campaign_locations_attributes_1_address1').value=attributesForInsertion["addressOne"];}
