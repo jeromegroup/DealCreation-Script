@@ -1,8 +1,12 @@
-1) Create a bookmarklet with contents of /resources/codeForIndividualPages/salesforce
+1) Set-Up:  
+
+1a) Create a "bookmarklet" with contents of http://github.com/jeromegroup/DealCreation-Script/raw/master/resources/code%20for%20individual%20pages/salesforce.txt
 	(Make a bookmark in your browser, edit the link, and paste the contents of the above file)
+
+1b) Visit http://github.com/jeromegroup/DealCreation-Script/raw/master/DealCreationHelper.txt and save the page as DealCreation Helper.txt
 
 2) Click that bookmarklet while viewing a salesforce deal you wish to create.
 
-3) Copy the output, and paste it over the line /* Insert ATTRIBUTESFORINSERTION here */ in the DealCreationHelper
+3) Copy the output, and paste it over the line /* Insert ATTRIBUTESFORINSERTION here */ in the DealCreationHelper file.
 
-4) Copy and paste the entire DealCreationHelper into the titlebar of the page you wish to copy (gpn.com/vendors/new, gpn.com/deals/new, gpn.com/deals/deal-name/coupon)
+4) Copy and paste the entire DealCreationHelper file into the titlebar of the page you wish to copy (/vendors/new, /deals/new, /deals/deal-name/coupon), press enter.
