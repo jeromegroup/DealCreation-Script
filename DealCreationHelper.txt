@@ -46,6 +46,7 @@ try{
 
 try{
 	/* Start Terms Page */
+
 	$('campaign_division_id').value=attributesForInsertion['division'];
 	$$('div.field.campaign_division_id')[0].childNodes[0].innerHTML="Subdivision: " + attributesForInsertion["subdivision"];
 	$('campaign_opportunity_id').value=attributesForInsertion['sfOpportunityId'];
@@ -69,17 +70,18 @@ try{
 	if (isNaN(attributesForInsertion['dealMax']) != true) {
 		$('campaign_pledges_attributes_0_max_pledges').value=attributesForInsertion['dealMax']; };
 	$('campaign_pledges_attributes_0_max_per_pledge').value=attributesForInsertion['buyerMax'];
-	$('campaign_pledges_attributes_0_max_per_pledge').parentNode.childNodes[0].innerHTML
-		+="<br /><span style='color:gray''>" +attributesForInsertion['conditions'].split("\n\n")[0] 
-		+ "</span>";
+	buyerLimit=document.createElement('p');
+	buyerLimit.innerHTML="<br /><span style='color:gray''>" +attributesForInsertion['conditions'] + "</span>";
+	$('pledge').appendChild(buyerLimit);
 	/* start Expiration date code */
 	var endDay= new Date(attributesForInsertion["featureEndDate"]).getDay();
 	var day = "";
 	if (endDay==5) day="Friday ";
 	if (endDay==6) day="Saturday ";
-	$('campaign_pledges_attributes_0_expires_date_1i').parentNode.childNodes[0].innerHTML+=" " 
-		+ attributesForInsertion['rawExpirationDate'] +"; Ends on " 
+	expyNote=document.createElement('p');
+	expyNote.innerHTML="Expires: " 	+ attributesForInsertion['rawExpirationDate'] +"; Ends on " 
 		+ "<span id='colorEndDay'>"+ day + "</span>" + attributesForInsertion['featureEndDate'];
+	$('pledge').appendChild(expyNote);
 	var expDate = new Date(attributesForInsertion["expirationDate"]);
 	$('campaign_pledges_attributes_0_expires_date_1i').value=expDate.getFullYear();
 	$('campaign_pledges_attributes_0_expires_date_2i').value=expDate.getMonth()+1;
@@ -153,7 +155,7 @@ try{
 	$('campaign_vendor_id').focus();
 
 	void 0;
-	
+		
 /* End Terms Page */
 	} catch(Error){}
 

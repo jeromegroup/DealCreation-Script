@@ -25,17 +25,18 @@ $('campaign_tipping_point').value=attributesForInsertion['dealMin'];
 if (isNaN(attributesForInsertion['dealMax']) != true) {
 	$('campaign_pledges_attributes_0_max_pledges').value=attributesForInsertion['dealMax']; };
 $('campaign_pledges_attributes_0_max_per_pledge').value=attributesForInsertion['buyerMax'];
-$('campaign_pledges_attributes_0_max_per_pledge').parentNode.childNodes[0].innerHTML
-	+="<br /><span style='color:gray''>" +attributesForInsertion['conditions'].split("\n\n")[0] 
-	+ "</span>";
+buyerLimit=document.createElement('p');
+buyerLimit.innerHTML="<br /><span style='color:gray''>" +attributesForInsertion['conditions'] + "</span>";
+$('pledge').appendChild(buyerLimit);
 /* start Expiration date code */
 var endDay= new Date(attributesForInsertion["featureEndDate"]).getDay();
 var day = "";
 if (endDay==5) day="Friday ";
 if (endDay==6) day="Saturday ";
-$('campaign_pledges_attributes_0_expires_date_1i').parentNode.childNodes[0].innerHTML+=" " 
-	+ attributesForInsertion['rawExpirationDate'] +"; Ends on " 
+expyNote=document.createElement('p');
+expyNote.innerHTML="Expires: " 	+ attributesForInsertion['rawExpirationDate'] +"; Ends on " 
 	+ "<span id='colorEndDay'>"+ day + "</span>" + attributesForInsertion['featureEndDate'];
+$('pledge').appendChild(expyNote);
 var expDate = new Date(attributesForInsertion["expirationDate"]);
 $('campaign_pledges_attributes_0_expires_date_1i').value=expDate.getFullYear();
 $('campaign_pledges_attributes_0_expires_date_2i').value=expDate.getMonth()+1;
