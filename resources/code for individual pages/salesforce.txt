@@ -191,7 +191,7 @@ switch(sfData['division']) {
 	case "Sioux Falls": sfData['division']=51; break;
 	case "St. Louis": sfData['division']=27; break;
 	case "Tampa": sfData['division']=18; break;
-	case "Tacoma": sfData['division']=52; break;
+	case "Tacoma": sfData['division']=11; break;
 	case "Toronto": sfData['division']=49; break;
 	case "Vancouver": sfData['division']=50; break;
 	case "Virginia Beach": sfData['division']=47; break;

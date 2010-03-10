@@ -46,7 +46,6 @@ try{
 
 try{
 	/* Start Terms Page */
-
 	$('campaign_division_id').value=attributesForInsertion['division'];
 	$$('div.field.campaign_division_id')[0].childNodes[0].innerHTML="Subdivision: " + attributesForInsertion["subdivision"];
 	$('campaign_opportunity_id').value=attributesForInsertion['sfOpportunityId'];
@@ -138,7 +137,8 @@ try{
 	if (launchDate.getDay()==6) { 
 		$('campaign_deadline_date_3i').style.backgroundColor='#ffc0ff'; 
 		document.getElementById('campaign_schedule_date_1i').parentNode.childNodes[0].innerHTML+=' <span style="color:red">Saturday Deal!</span>'; };
-	if (attributesForInsertion['division']==4 || attributesForInsertion['division']==6 ) {
+	var loc = attributesForInsertion['division'];
+	if (loc==4 || loc==6 || loc==11 || 5) {
 		$('campaign_division_id').style.backgroundColor='#ffc0ff';};
 	$('campaign_deadline_date_3i').onchange = function() { this.style.backgroundColor ="white";};
 	$('campaign_release_date_1i').style.backgroundColor='#ffeeff';
@@ -155,8 +155,7 @@ try{
 	$('campaign_vendor_id').focus();
 
 	void 0;
-		
-/* End Terms Page */
-	} catch(Error){}
+	
+} catch(error) {}
 
 void 0;

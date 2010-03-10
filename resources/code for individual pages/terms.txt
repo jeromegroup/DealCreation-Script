@@ -93,7 +93,8 @@ if (launchDate.getDay()==5) {
 if (launchDate.getDay()==6) { 
 	$('campaign_deadline_date_3i').style.backgroundColor='#ffc0ff'; 
 	document.getElementById('campaign_schedule_date_1i').parentNode.childNodes[0].innerHTML+=' <span style="color:red">Saturday Deal!</span>'; };
-if (attributesForInsertion['division']==4 || attributesForInsertion['division']==6 ) {
+var loc = attributesForInsertion['division'];
+if (loc==4 || loc==6 || loc==11 || 5) {
 	$('campaign_division_id').style.backgroundColor='#ffc0ff';};
 $('campaign_deadline_date_3i').onchange = function() { this.style.backgroundColor ="white";};
 $('campaign_release_date_1i').style.backgroundColor='#ffeeff';
