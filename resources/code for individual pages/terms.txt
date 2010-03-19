@@ -24,7 +24,6 @@ $('campaign_pledges_attributes_0_unit_buy_price').value=attributesForInsertion['
 $('campaign_tipping_point').value=attributesForInsertion['dealMin'];
 if (isNaN(attributesForInsertion['dealMax']) != true) {
 	$('campaign_pledges_attributes_0_max_pledges').value=attributesForInsertion['dealMax']; };
-$('campaign_pledges_attributes_0_max_per_pledge').value=attributesForInsertion['buyerMax'];
 buyerLimit=document.createElement('p');
 buyerLimit.innerHTML="<br /><span style='color:gray''>" +attributesForInsertion['conditions'] + "</span>";
 $('pledge').appendChild(buyerLimit);
