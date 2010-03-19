@@ -14,7 +14,7 @@ sfData["unitValue"]=document.getElementById('00N80000002Xkur_ileinner').innerHTM
 sfData["unitBuyPrice"]=document.getElementById('00N80000002XktR_ileinner').innerHTML;
 sfData["dealMin"]=document.getElementById('00N80000002XktQ_ileinner').innerHTML;
 sfData["dealMax"]=document.getElementById('00N80000002Xkty_ileinner').innerHTML;
-sfData["buyerMax"]=document.getElementById('00N80000003j6sZ_ileinner').innerHTML;
+/* sfData["buyerMax"]=document.getElementById('00N80000003j6sZ_ileinner').innerHTML; */
 /* This code will return false values if the vendor website isn't first in the list */
 try { sfData["vendorURL"]=document.getElementById('00N80000003YC5j_ileinner').getElementsByTagName('a')[0].text; }
 catch(typeError) {sfData["vendorURL"]="Url not found in Salesforce";}
