@@ -28,7 +28,12 @@ try{
 
 try{
 	/* Start Coupon page */
-	$('coupon_condition_data').value=attributesForInsertion['conditions'];
+	var noAlc = "\n\nNot valid toward alcohol.";
+	if (attributesForInsertion['texahol']=="true") {
+		$('coupon_condition_data').value=attributesForInsertion['conditions'] + noAlc;
+	} else {
+		$('coupon_condition_data').value=attributesForInsertion['conditions'];
+	}
 	var tippingLanguage = "\n\n*Remember: Groupon customers tip on the full amount of the pre-discounted bill (and tip generously). That's why we are the coolest customers out there.\n\n*Remember: Groupon customers tip on the full amount of the pre-discounted service (and tip generously). That's why we are the coolest customers out there.";
 	$('coupon_instructions').value=attributesForInsertion['instructions'] + tippingLanguage;
 

@@ -6,6 +6,7 @@ sfData["sfOpportunityId"]=document.getElementById('00N80000004KNJg_ileinner').in
 sfData["feature"]=document.getElementById('opp5_ileinner').innerHTML;
 sfData["featureDate"]=document.getElementById('00N8000000364aj_ileinner').innerHTML;
 sfData["featureEndDate"]=document.getElementById('00N800000040dNR_ileinner').innerHTML;
+sfData["category"]=document.getElementById('00N80000003MgVj_ileinner').innerHTML;
 sfData["vendorName"]=document.getElementById('opp4_ileinner').childNodes[0].text;
 sfData["redemptionAddress"]=document.getElementById('00N80000003LdTB_ileinner').innerHTML;
 sfData["billingAddress"]=document.getElementById('00N80000003LriJ_ileinner').innerHTML;
@@ -24,6 +25,14 @@ sfData["conditions"]=document.getElementById('00N80000002XjZV_ileinner').innerHT
 sfData["instructions"]=document.getElementById('00N800000033zfJ_ileinner').innerHTML;
 sfData["rawExpirationDate"]=document.getElementById('00N800000033zV8_ileinner').innerHTML;
 sfData["expirationDate"]="";
+
+/* Texas Alcohol Law */
+if (sfData['category']=="Food &amp; Drink") {
+	if (sfData['division']=="Austin" || sfData['division']=="Dallas" || sfData['division']=="Fort Worth" || sfData['division']=="Houston" || sfData['division']=="San Antonio") {
+		sfData['texahol']=true;
+	}
+}
+
 
 /* To get the first name of the business contact */
 var theId = document.getElementById('00N80000004KNJg_ileinner').innerHTML+"_RelatedContactRoleList_body";
