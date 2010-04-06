@@ -54,9 +54,9 @@ sfData['redemptionAddress']=sfData['redemptionAddress'].replace(/\"/g, "\\\"");
 sfData['billingAddress']=sfData['billingAddress'].replace(/<br>/g, "\\n");
 sfData['billingAddress']=sfData['billingAddress'].replace(/\"/g, "\\\"");
 sfData['conditions']=sfData['conditions'].replace(/<br>/g, "");
-/*
+sfData['conditions']=sfData['conditions'].replace(/\n/g, "");
 sfData['conditions']=sfData['conditions'].replace(/\"/g, "\\\"");
-*/
+
 sfData['instructions']=sfData['instructions'].replace(/<br>/g, "\\n");
 sfData['instructions']=sfData['instructions'].replace(/\"/g, "\\\"");
 
@@ -161,27 +161,37 @@ switch(sfData['division']) {
 	case "Atlanta": sfData['division']=7; break;
 	case "Austin": sfData['division']=17; break;
 	case "Baltimore": sfData['division']=25; break;
+	case "Birmingham": sfData['division']=72; break;
+	case "Boise": sfData['division']=66; break;
 	case "Boston": sfData['division']=2; break;
 	case "Brooklyn": sfData['division']=57; break;
+	case "Buffalo": sfData['division']=74; break;
 	case "Charlotte": sfData['division']=23; break;
 	case "Chicago": sfData['division']=1;  break;
 	case "Cincinnati": sfData['division']=38; break;
 	case "Cleveland": sfData['division']=32; break;
+	case "Colorado Springs": sfData['division']=68; break;
 	case "Columbus": sfData['division']=30; break;
 	case "Dallas": sfData['division']=10; break;
+	case "Dayton": sfData['division']=64; break;
 	case "Denver": sfData['division']=12; break;
 	case "Detroit":	sfData['division']=42; break;
+	case "Fort Wayne": sfData['division']=76; break;
 	case "Fort Worth": sfData['division']=44; break;
 	case "Fresno": sfData['division']=45; break;
+	case "Hartford": sfData['division']=63; break;
+	case "Honolulu": sfData['division']=70; break;
 	case "Houston":	sfData['division']=13; break;
 	case "Indianapolis": sfData['division']=26; break;
 	case "Jacksonville": sfData['division']=33; break;
 	case "Kansas City": sfData['division']=29; break;
 	case "Las Vegas": sfData['division']=22; break;
+	case "Lincoln": sfData['division']=75; break;
 	case "London": sfData['division']=48; break;
 	case "Long Island":	sfData['division']=58; break;
 	case "LA": sfData['division']=6; break;
 	case "Louisville": sfData['division']=37; break;
+	case "Madison": sfData['division']=69; break;
 	case "Memphis": sfData['division']=34; break;
 	case "Miami": sfData['division']=19; break;
 	case "Milwaukee": sfData['division']=43; break;
@@ -189,13 +199,19 @@ switch(sfData['division']) {
 	case "Nashville": sfData['division']=24; break;
 	case "New Orleans": sfData['division']=54; break;
 	case "New York": sfData['division']=3; break;
+	case "Newark": sfData['division']=73; break;
 	case "Oklahoma City": sfData['division']=40; break;
 	case "Omaha": sfData['division']=36; break;
+	case "Orlando": sfData['division']=60; break;
 	case "Philadelphia": sfData['division']=16; break;
 	case "Phoenix": sfData['division']=15; break;
 	case "Pittsburgh": sfData['division']=31; break;
 	case "Portland": sfData['division']=20; break;
+	case "Providence": sfData['division']=55; break;
+	case "Queens": sfData['division']=59; break;
 	case "Raleigh": sfData['division']=39; break;
+	case "Richmond": sfData['division']=65; break;
+	case "Rochester": sfData['division']=67; break;
 	case "Sacramento": sfData['division']=46; break;
 	case "Salt Lake City": sfData['division']=56; break;
 	case "San Antonio": sfData['division']=35; break;
@@ -212,6 +228,7 @@ switch(sfData['division']) {
 	case "Vancouver": sfData['division']=50; break;
 	case "Virginia Beach": sfData['division']=47; break;
 	case "DC": sfData['division']=4; break;
+	case "Wichita": sfData['division']=71; break;
 	/*case "Tacoma": sfData['division']=11; break;*/
 }
 
