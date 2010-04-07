@@ -53,12 +53,12 @@ sfData['redemptionAddress']=sfData['redemptionAddress'].replace(/<br>/g, "\\n");
 sfData['redemptionAddress']=sfData['redemptionAddress'].replace(/\"/g, "\\\"");
 sfData['billingAddress']=sfData['billingAddress'].replace(/<br>/g, "\\n");
 sfData['billingAddress']=sfData['billingAddress'].replace(/\"/g, "\\\"");
-sfData['conditions']=sfData['conditions'].replace(/<br>/g, "\\n");
-sfData['conditions']=sfData['conditions'].replace(/\"/g, "\\\"");
 /*
+sfData['conditions']=sfData['conditions'].replace(/<br>/g, "\\n");
+*/
+sfData['conditions']=sfData['conditions'].replace(/\"/g, "\\\"");
 sfData['conditions']=sfData['conditions'].replace(/<br>/g, "");
 sfData['conditions']=sfData['conditions'].replace(/\n/g, "");
-*/
 
 sfData['instructions']=sfData['instructions'].replace(/<br>/g, "\\n");
 sfData['instructions']=sfData['instructions'].replace(/\"/g, "\\\"");
