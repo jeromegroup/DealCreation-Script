@@ -91,11 +91,7 @@ try{
 	$('campaign_pledges_attributes_0_expires_date_3i').value=expDate.getDate();
 	/* end Exipration date code */
 	$('campaign_deal_vendor_name').value=attributesForInsertion['vendorName'];
-	var anchorText = attributesForInsertion['vendorURL'];
-	if (anchorText.indexOf('http://') != -1) anchorText=anchorText.slice(7);
-	if (anchorText.slice(0,3) != "www") anchorText= "www." + anchorText; 
-	var slash = anchorText.indexOf("/");
-	if (slash != -1) anchorText = anchorText.slice(0,slash);
+	var anchorText = "website";
 	$('campaign_deal_vendor_website_label').value=anchorText;
 	$('campaign_deal_vendor_website_url').value=attributesForInsertion['vendorURL'];
 	locationHint = document.createElement('p');
@@ -159,7 +155,6 @@ try{
 	$('campaign_vendor_id').focus();
 
 	void 0;
-	
 } catch(error) {}
 
 void 0;
