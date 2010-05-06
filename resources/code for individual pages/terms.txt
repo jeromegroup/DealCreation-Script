@@ -96,13 +96,11 @@ $('campaign_release_date_1i').style.backgroundColor='#ffeeff';
 $('campaign_release_date_2i').style.backgroundColor='#ffeeff';
 $('campaign_release_date_3i').style.backgroundColor='#ffeeff';
 $('date_hour').style.backgroundColor='#ffeeff';
-$('campaign_vendor_id').style.backgroundColor='#ffc0ff';
 $('campaign_deal_vendor_website_url').style.backgroundColor='#ffc0ff';
 $('campaign_deal_vendor_website_url').setAttribute('onclick', 'this.style.backgroundColor="white"');
 $('campaign_deal_vendor_website_label').style.backgroundColor='#ffeeff';
 $('campaign_deal_vendor_website_label').setAttribute('onclick', 'this.style.backgroundColor="white"');
 
 /* end color */
-$('campaign_vendor_id').focus();
 
 void 0;
